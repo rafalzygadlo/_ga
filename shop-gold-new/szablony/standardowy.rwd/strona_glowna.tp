@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="{__JEZYK_STRONY}">
+<head>
+    <meta charset="utf-8" />
+    <title>{__META_TYTUL}</title>
+    <meta name="keywords" content="{__META_SLOWA_KLUCZOWE}" />
+    <meta name="description" content="{__META_OPIS}" />
+    <meta name="robots" content="index,follow" />  
+        <link rel="shortcut icon" href="szablony/standardowy.rwd/obrazki/szablon/ico.gif" type="image/ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+
+    <?php if ( isset($_GET['idprod']) && $_GET['idprod'] != '' ) { ?>
+    <meta property="og:title" content="{__META_TYTUL}" />
+    <meta property="og:description" content="{__META_OPIS}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{__META_OG_ADRES_STRONY}" />
+    <meta property="og:image" content="{__META_OG_FOTO}" />
+    <?php } ?>
+
+    <base href="{__DOMENA}" />	
+    <link rel="stylesheet" type="text/css" href="szablony/standardowy.rwd/css/style.php?{__KOMPRESJA_CSS}=style,boxy,moduly{__CSS_PLIK_GLOWNY}{__CSS_PLIK}{__CSS_POPUP}{__CSS_OPINIE}" />
+    <script src="javascript/jquery.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="javascript/jquery.marquee.js"></script>
+    <script src="javascript/skrypty.php"></script>
+        
+    
+    <!--[if lt IE 10]>
+    <script src="javascript/html5shiv.js"></script>
+    <![endif]-->
+        <script src="javascript/jquery.marquee_odpal.js"></script>
+            
+    {__JS_PLIK}
+    {__JS_POPUP}
+    {__GOOGLE_WERYFIKACJA}
+    {__GOOGLE_ANALYTICS}
+    {__LINK_CANONICAL}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '909538785839980');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=909538785839980&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- UA-39292892-1 artinusa kod -->
+  ga('create', 'UA-92534367-3', 'auto', 'clientTracker');
+  
+ga('clientTracker.send', 'pageview'); 
+</script>
+
+<!-- maxkod and interium e-commerce code begins here -->
+ 
+<?php
+global $gaCode;
+if (isset($gaCode))
+{
+    print $gaCode;
+}
+?>
+<!-- maxkod and interium e-commerce code endss here bye -->
+
+
+
+</head>
+
+<body {__TLO_SKLEPU}>
+
+<header id="NaglowekSklepu">
+
+    <div id="GornaNawigacja">
+    
+        <div class="Strona">
+                <div id="topLinki" class="LinkiGorne">
+        	       {__GORNE_MENU}
+        	     </div>
+               
+            <div id="ZmianaJezyka">
+    
+                {__ZMIANA_JEZYKA}
+                              
+            </div>
+            
+            <?php if (PRODUKT_SCHOWEK_STATUS == 'tak') { ?>
+        
+            <div id="Schowek">
+
+                <a href="schowek.html">{__TLUMACZ:SCHOWEK_NAGLOWEK} ({__ILOSC_PRODUKTOW_SCHOWKA})</a>
+
+            </div>  
+
+            <?php } ?>       
+
+            <?php 
+            if (isset($_SESSION['customer_id']) && (int)$_SESSION['customer_id'] > 0 && $_SESSION['gosc'] == '0' ) {
+                ?>
+                
+                <div id="Logowanie">
+                
+                    <a href="wylogowanie.html" rel="nofollow">{__TLUMACZ:WYLOGUJ_SIE}</a>
+                    <a href="{__SSL:panel-klienta.html}" rel="nofollow">{__TLUMACZ:PANEL_KLIENTA}</a> 
+                    
+                </div>
+                
+                <?php 
+            } else {
+                if ( !isset($_SESSION['customer_id']) || (int)$_SESSION['customer_id'] == 0 ) {
+                    ?>
+                    
+                    <div id="Logowanie">
+                    
+                        <a href="{__SSL:logowanie.html}" rel="nofollow">{__TLUMACZ:ZALOGUJ_SIE}</a>
+                        <a href="{__SSL:rejestracja.html}" rel="nofollow">{__TLUMACZ:ZALOZ_KONTO}</a>
+                        
+                    </div>
+                    
+                    <?php 
+                }
+            } 
+            ?>            
+
+        </div>
+    
+    </div>
+      <div id="logo_top_banner">
+     	<div id="Strona"><div class="logo">{__LOGO_SKLEPU}</div>
+     	
+     	<div class="top_banner"><img src="szablony/standardowy.rwd/obrazki/szablon/top.jpg" style="width: 100%"></div></div>
+     </div>  
+</header>
+
+<div id="Strona">
+
+
+    
+    <div id="SzukanieKoszyk">
+    
+        <form onsubmit="return sprSzukaj(this,'InSzukaj')" method="post" action="szukaj.html" id="Wyszukiwanie">
+        
+            <div>
+                <input id="ButSzukaj" type="image" src="szablony/standardowy.rwd/obrazki/szablon/szukaj.png" alt="{__TLUMACZ:PRZYCISK_SZUKAJ}" />
+                <input id="InSzukaj" type="text" name="szukaj" size="30" value="{__TLUMACZ:WPISZ_SZUKANA_FRAZE}" />
+                <input type="hidden" name="postget" value="tak" />
+                <input type="hidden" name="opis" value="tak" />
+                <input type="hidden" name="nrkat" value="tak" />
+                <input type="hidden" name="kodprod" value="tak" />
+            </div>
+
+            <a href="wyszukiwanie-zaawansowane.html">{__TLUMACZ:WYSZUKIWANIE_ZAAWANSOWANE}</a>
+            
+            <div class="cl"></div>
+                
+        </form> 
+
+        <div id="Koszyk">
+        
+            <a href="koszyk.html">
+            
+                <?php if ($GLOBALS['koszykKlienta']->KoszykIloscProduktow() == 0) { ?>
+                
+                <span><img src="szablony/standardowy.rwd/obrazki/szablon/koszyk.png" alt="{__TLUMACZ:KOSZYK}" /></span>
+                
+                <?php } else { ?>
+                    
+                    <span><img src="szablony/standardowy.rwd/obrazki/szablon/koszyk_pelny.png" alt="{__TLUMACZ:KOSZYK}" /></span>
+                    
+                <?php } ?>
+                
+                <span>
+        
+                    <strong>{__TLUMACZ:KOSZYK}</strong>
+                
+                    <?php if ($GLOBALS['koszykKlienta']->KoszykIloscProduktow() > 0) { ?>
+                    
+                    {__TLUMACZ:ILOSC_PRODUKTOW}: <b>{__ILOSC_PRODUKTOW_KOSZYKA}</b>, {__TLUMACZ:WARTOSC_PRODUKTOW}: <b>{__WARTOSC_KOSZYKA_BRUTTO}</b>
+
+                    <?php } else { ?>
+                    
+                    {__TLUMACZ:KOSZYK_JEST_PUSTY}
+                    
+                    <?php } ?>
+                    
+                </span>
+                
+            </a>
+            
+        </div>         
+
+        <div class="cl"></div>
+    
+    </div>
+    
+    <!--div id="GorneMenu" class="Rozwiniete">
+    
+        {__GORNE_MENU}
+        
+    </div-->
+    
+    <?php if ($GLOBALS['stronaGlowna'] != true) { ?>
+
+    <div id="Nawigacja">
+    
+        {__BREADCRUMB}
+        
+    </div>
+    
+    <?php } ?>
+
+    {__MODULY_SRODKOWE_GORA}
+    
+    <div class="cl"></div>
+
+    <?php if (CZY_WLACZONA_LEWA_KOLUMNA == 'tak' && ($GLOBALS['kolumny'] == 'wszystkie' || $GLOBALS['kolumny'] == 'wszystkie_lewa')) { ?>
+    <div id="LewaKolumna" style="width:{__SZEROKOSC_LEWEJ_KOLUMNY}px">
+    
+        <div id="LewaKolumnaPrzerwa">
+            {__LEWA_KOLUMNA}
+        </div>
+        
+    </div>
+    <?php } ?>
+    
+    <div id="SrodekKolumna">
+    
+        {__MODULY_SRODKOWE_PODSTRONA_GORA}
+
+        {__SRODKOWA_KOLUMNA}
+        
+        {__MODULY_SRODKOWE_PODSTRONA_DOL}
+        
+    </div>      
+    
+    <?php if (CZY_WLACZONA_PRAWA_KOLUMNA == 'tak' && ($GLOBALS['kolumny'] == 'wszystkie' || $GLOBALS['kolumny'] == 'wszystkie_prawa')) { ?>
+    <div id="PrawaKolumna" style="width:{__SZEROKOSC_PRAWEJ_KOLUMNY}px">
+    
+        <div id="PrawaKolumnaPrzerwa">
+            {__PRAWA_KOLUMNA}
+        </div>
+        
+    </div>    
+    <?php } ?>
+    
+    <div class="cl"></div>
+    
+    {__MODULY_SRODKOWE_DOL}
+    
+    <footer id="Stopka">
+    
+        <div class="KolumnaStopki">
+            
+            <strong>
+                {__PIERWSZA_KOLUMNA_STOPKI_NAGLOWEK}
+                <span class="StopkaRozwin"></span>
+            </strong>
+            
+            {__PIERWSZA_KOLUMNA_STOPKI_LINKI}
+
+        </div>
+        
+        <div class="KolumnaStopki">
+
+            <strong>
+                {__DRUGA_KOLUMNA_STOPKI_NAGLOWEK}
+                <span class="StopkaRozwin"></span>
+            </strong>
+            
+            {__DRUGA_KOLUMNA_STOPKI_LINKI}
+            
+        </div>
+
+        <div class="KolumnaStopki">
+            
+            <strong>
+                {__TRZECIA_KOLUMNA_STOPKI_NAGLOWEK}
+                <span class="StopkaRozwin"></span>
+            </strong>
+            
+            {__TRZECIA_KOLUMNA_STOPKI_LINKI}
+            
+        </div>
+
+        <div class="KolumnaStopki">
+            
+            <strong>
+                {__CZWARTA_KOLUMNA_STOPKI_NAGLOWEK}
+                <span class="StopkaRozwin"></span>
+            </strong>
+            
+            {__CZWARTA_KOLUMNA_STOPKI_LINKI}
+        
+        </div>
+
+        <div class="cl"></div>
+           
+    </footer>
+    
+    <div class="Copy">
+        <div class="copy_left">&copy; 2015 artinus.eu<br /><a href="http://shopgold.pl">Oprogramowanie sklepu shopgold.pl</a></div><div class="copy_right">wykonanie: <a href="http://interium.com.pl" alt="strony internetowe">interium.com.pl</a> - <a href="http://interium.com.pl" alt="interium.com.pl">strony internetowe</a></div>
+    </div>    
+
+</div>
+
+<!-- nie usuwac - wyswietla dodatkowe moduly stale - np informacje o cookie -->
+{__MODULY_STALE}
+
+<!-- nie usuwac - laduje preloader obrazkow -->
+{__FUNKCJA_PRELOADERA}
+
+<!-- nie usuwac - wyswietla bannery popup -->
+{__TRESC_POPUP}
+<!-- nie usuwac - wyswietla widgety -->
+{__WIDGET_CENEO}
+{__WIDGET_OKAZJE_INFO}
+{__WIDGET_OPINEO}
+{__WIDGET_TRUSTEDSHOPS}
+
+<!-- nie usuwac -->
+<div id="RwdWersja"></div>
+
+</body>
+</html>

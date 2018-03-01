@@ -1,0 +1,16 @@
+mkdir shop-gold-old
+mkdir shop-gold-new
+cd ..
+cp --parents ustawienia/ustawienia_db.php _ga/shop-gold-new
+cp --parents listing_dol.php _ga/shop-gold-new
+cp --parents szablony/standardowy.rwd/strona_glowna.tp _ga/shop-gold-new
+cp --parents klasy/Koszyk.php _ga/shop-gold-new
+cp --parents zamowienie_potwierdzenie.php _ga/shop-gold-new
+cp --parents zamowienie_podsumowanie.php _ga/shop-gold-new
+cp --parents produkt.php _ga/shop-gold-new
+cp --parents koszyk.php _ga/shop-gold-new
+
+cd _ga
+
+git push --set-upstream /home/qotsa2/git/_ga master
+git push -u origin master
